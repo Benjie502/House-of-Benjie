@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coffee Bar | House of Benjie</title>
+
+
+<style>
+
+    .coffee-intro{
+    font-size:38px;
+    line-height:1.8;
+    margin-top:40px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Georgia, serif;
+    background:#2b1a10;
+    color:#fff3d0;
+    overflow:hidden;
+}
+
+.room{
+    width:100vw;
+    height:100vh;
+    display:grid;
+    grid-template-columns:16% 34% 18% 32%;
+    grid-template-rows:22% 68% 10%;
+    background:#2b1a10;
+    border:1px solid #8b6b3e;
+}
+
+.title-panel,
+.verse-panel,
+.toc-panel,
+.essay-panel,
+.back-home{
+    background:#f3eadc;
+    color:#2a1a10;
+}
+
+.title-panel{
+    grid-column:1;
+    grid-row:1 / 4;
+    border-right:2px solid #2a1a10;
+    padding:42px 24px;
+}
+
+.title-panel h1{
+    font-size:200px;
+    line-height:1.12;
+    font-weight:normal;
+}
+
+.verse-panel{
+    grid-column:2 / 4;
+    grid-row:1;
+    border:2px solid #2a1a10;
+    margin:14px;
+    padding:26px;
+    overflow:auto;
+}
+
+.verse-panel h2{
+    font-size:100px;
+    margin-bottom:16px;
+}
+
+.verse-panel p{
+    font-size:70px;
+    line-height:2;
+}
+
+.photo-panel{
+    grid-column:2;
+    grid-row:2;
+    padding:14px;
+    background:#2b1a10;
+}
+
+.photo-panel img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.toc-panel{
+    grid-column:3;
+    grid-row:2;
+    border:2px solid #2a1a10;
+    margin:1.4px 0;
+    padding:24px 24px 10px 24px;
+    overflow:auto;
+    align-self:start;
+    height:fit-content;
+    margin-top:960px;
+}
+
+.toc-panel h2{
+    font-size:100px;
+    margin-bottom:20px;
+}
+
+.toc-panel ol{
+    padding-left:75px;
+}
+
+.toc-panel li{
+    font-size:60px;
+    line-height:2;
+    margin-bottom:1.4px;
+    cursor:pointer;
+}
+
+.toc-nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.toc-nav button{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-family:Georgia, serif;
+    font-size:38px;
+    color:#2a1a10;
+}
+
+.toc-nav .active-page{
+    font-weight:bold;
+    text-decoration:underline;
+}
+
+.essay-panel{
+    grid-column:4;
+    grid-row:1 / 3;
+    border-left:2px solid #2a1a10;
+    padding:42px;
+    overflow:auto;
+}
+
+.essay-panel h1{
+    font-size:58px;
+    font-weight:normal;
+    letter-spacing:5px;
+    text-align:center;
+    margin-top:100px;
+}
+
+.essay-panel p{
+    font-size:60px;
+    line-height:2;
+    margin-top:30px;
+}
+
+.back-home{
+    grid-column:4;
+    grid-row:3;
+    border-left:2px solid #2a1a10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    letter-spacing:3px;
+    background:#fff5e6;
+}
+
+.back-home a{
+    color:#2a1a10;
+    text-decoration:none;
+}
+
+.coffee-intro{
+    font-size:60px;
+    line-height:3;
+    margin-top:40px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="room">
+
+    <aside class="title-panel">
+    <h1>COFFEE<br>BAR</h1>
+
+    <p class="coffee-intro">
+        The Coffee Bar is where the noise of the workshop fades into the background.
+        This room houses Benjie's Bench — a collection of reflections on life, family,
+        faith, work, and the lessons gathered through years of building cabinets and
+        raising a family.
+    </p>
+</aside>
+
+    <section class="verse-panel">
+        <h2>Verse of the Day</h2>
+        <p>
+            Commit your work to the Lord, and your plans will be established.
+        </p>
+        <p>— Proverbs 16:3</p>
+    </section>
+
+    <section class="photo-panel">
+        <img src="images/coffee-bar.png" alt="Coffee Bar">
+    </section>
+
+    <section class="toc-panel">
+    <h2>Table of Contents</h2>
+    <div id="toc"></div>
+</section>
+
+    <main class="essay-panel">
+    <h1 id="essay-title">ESSAY</h1>
+
+    <p id="essay-body">
+        Select an entry from Benjie's Bench.
+        The chosen composition will appear here.
+    </p>
+</main>
+
+    <div class="back-home">
+        <a href="house-map.html">BACK TO HOME MAP</a>
+    </div>
+
+</div>
+  ```html
+<script src="data/essays.js"></script>
+
+<script>
+const essays = [
+  "Time: Life's Only True Currency",
+  "Best Seat in the House",
+  "Kids Never Grow Young",
+  "A Foot Ahead of Another",
+  "The Unfinished Chair",
+  "The Opium Bed",
+  "The Treasure Chest",
+  "Sketching Nostalgia",
+  "On Coding",
+  "The Best Teacher",
+  "The Greatest Profession of All",
+  "A Time to Think",
+  "Gloria",
+  "Pamana",
+  "Grace Without Shelter",
+  "The Currency Called Knowledge",
+  "Skin Deep",
+  "The Map to Fortune Street",
+  "Climbing Ladders",
+  "Losing for Success",
+  "The Repurposed Driven Life",
+  "The Third Law of Marriage",
+  "The Law of Impenetrability",
+  "Thermodynamics",
+  "The Journey of Sharing",
+  "From Random",
+  "Together Apart",
+  "The Power of Sharing",
+  "The Story Behind an Expedition",
+  "Pattern Recognition",
+  "Leadership in Crisis",
+  "The Urn Maker",
+  "Back on Square 1",
+  "Roots",
+  "What Remains When the Hands Begin to Fail",
+  "The House Built for Absence",
+  "Ode to My Diabetes",
+  "Nanay",
+  "Nothing to Prove, Only to be Remembered"
+];
+
+const ITEMS_PER_PAGE = 5;
+let currentPage = 0;
+
+function renderTOC() {
+  const toc = document.getElementById("toc");
+  toc.innerHTML = "";
+
+  const start = currentPage * ITEMS_PER_PAGE;
+  const end = start + ITEMS_PER_PAGE;
+  const totalPages = Math.ceil(essays.length / ITEMS_PER_PAGE);
+
+  const list = document.createElement("ol");
+  list.start = start + 1;
+
+  essays.slice(start, end).forEach((title, index) => {
+    const essayNumber = start + index;
+
+    const item = document.createElement("li");
+    item.innerText = title;
+    item.onclick = function () {
+      showEssay(essayNumber);
+    };
+
+    list.appendChild(item);
+  });
+
+  toc.appendChild(list);
+
+  const nav = document.createElement("div");
+  nav.className = "toc-nav";
+
+  for (let i = 0; i < totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i + 1;
+
+    if (i === currentPage) {
+      btn.className = "active-page";
+    }
+
+    btn.onclick = function () {
+      currentPage = i;
+      renderTOC();
+    };
+
+    nav.appendChild(btn);
+  }
+
+  toc.appendChild(nav);
+}
+
+function showEssay(index) {
+  const title = essays[index];
+
+  document.getElementById("essay-title").innerText = title;
+
+  document.getElementById("essay-body").innerText =
+    essayTexts[title] || "Essay not yet uploaded.";
+}
+
+renderTOC();
+</script>
+```

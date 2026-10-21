@@ -1,66 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>House of Benjie</title>
 
 <style>
-body{
+
+*{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#f5f1e8;
-    text-align:center;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
+    background:#f7f4ee;
+    color:#2d2d2d;
 }
 
 .hero{
     height:100vh;
+    background-image:url("images/front-gate2.png");
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.18);
     display:flex;
-    flex-direction:column;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+}
+
+.welcome-box{
+    text-align:center;
+    max-width:1500px;
+    padding:45px 60px;
+    background:rgba(13, 13, 13, 0.42);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.35);
+    border-radius:18px;
+    box-shadow:0 18px 45px rgba(0, 0, 0, 0.174);
+    color:white;
+    text-shadow:0 2px 6px rgba(0,0,0,0.45);
+}
+
+.subtitle{
+    color:#f0c46a;
+}
+
+.message{
+    color:#fffaf0;
 }
 
 h1{
-    font-size:60px;
-    margin-bottom:10px;
+    font-size:150px;
+    margin-bottom:20px;
+    font-weight:normal;
 }
 
-p{
-    font-size:22px;
+.subtitle{
+    font-size:50px;
+    margin-bottom:25px;
 }
 
-.mailbox{
-    font-size:120px;
-    cursor:pointer;
-    margin-top:30px;
+.message{
+    font-size:100px;
+    line-height:1.8;
 }
 
-.mailbox:hover{
-    transform:scale(1.1);
+.scroll{
+    position:absolute;
+    bottom:30px;
+    width:100%;
+    text-align:center;
+    font-size:18px;
+    letter-spacing:3px;
 }
+
 </style>
 
 </head>
 
 <body>
 
-<div class="hero">
+<section class="hero">
+
+<div class="overlay">
+
+<div class="welcome-box">
 
 <h1>House of Benjie</h1>
 
-<p>
-Welcome, friend.
-</p>
+<div class="subtitle">
+7973
+</div>
 
-<p>
-Ring the mailbox and come inside.
-</p>
+<div class="message">
 
-<div class="mailbox">
-📬
+Welcome, friend.<br><br>
+
+Stories are shared around the dining table.<br>
+Lessons are learned in the workshop.<br>
+Books wait quietly in the library.<br>
+Coffee is always ready.<br><br>
+
+Ring the bell and come inside.
+
 </div>
 
 </div>
+
+</div>
+
+<div class="scroll">
+SCROLL TO ENTER
+</div>
+
+</section>
+
+
 
 </body>
-
 </html>

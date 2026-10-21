@@ -1,0 +1,586 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Basement | House of Benjie</title>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+
+
+
+.basement{
+    width:100vw;
+    height:100vh;
+    display:grid;
+    grid-template-columns:72% 28%;
+    grid-template-rows:16% 74% 10%;
+    background:#f1e4d1;
+    border:2px solid #2a1a10;
+}
+
+.header{
+    grid-column:1 / 3;
+    grid-row:1;
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    padding:30px 54px 24px 54px;
+    border-bottom:2px solid #2a1a10;
+    background:#fff5e6;
+}
+
+.header h1{
+    font-size:200px;
+    font-weight:normal;
+    letter-spacing:6px;
+}
+
+.tabs{
+    display:flex;
+    gap:75px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+
+.media-panel{
+    grid-column:1;
+    grid-row:2 / 4;
+    border-right:2px solid #2a1a10;
+    padding:28px;
+    background:#ead8bd;
+    display:grid;
+    grid-template-rows:auto 1fr;
+    gap:22px;
+}
+
+.media-buttons{
+    display:flex;
+    gap:18px;
+}
+
+.media-box{
+    background:#fffaf2;
+    border:2px solid #2a1a10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    min-height:0;
+}
+
+.media-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.placeholder{
+    font-size:80px;
+    letter-spacing:4px;
+    text-align:center;
+    line-height:1.6;
+    padding:40px;
+}
+
+.caption-panel{
+    grid-column:2;
+    grid-row:2;
+    background:#fffaf2;
+    padding:54px 38px;
+    overflow:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    border-bottom:2px solid #2a1a10;
+}
+
+.caption-panel h2{
+    font-size:56px;
+    font-weight:normal;
+    letter-spacing:3px;
+    text-align:center;
+    margin-bottom:34px;
+}
+
+.caption-panel p{
+    font-size:50px;
+    line-height:2.15;
+    text-align:center;
+}
+
+.media-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.gallery-view{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.gallery-view img,
+.gallery-view video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.gallery-controls{
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#fff5e6;
+    border:2px solid #2a1a10;
+    padding:8px 18px;
+    display:flex;
+    gap:18px;
+    align-items:center;
+    font-size:20px;
+}
+
+.gallery-controls button{
+    background:none;
+    border:none;
+    font-family:Georgia, serif;
+    font-size:50px;
+    cursor:pointer;
+}
+
+.gallery-view{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.main-photo{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.thumbnail-strip{
+    position:absolute;
+    left:20px;
+    right:20px;
+    bottom:20px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:10px;
+    background:rgba(255,245,230,.85);
+    border:2px solid #2a1a10;
+}
+
+.thumbnail-strip img{
+    width:190px;
+    height:130px;
+    object-fit:cover;
+    cursor:pointer;
+    border:2px solid #2a1a10;
+    opacity:.65;
+}
+
+.thumbnail-strip img.active-thumb{
+    opacity:1;
+    border:4px solid #c49045;
+}
+
+/* ===========================
+   BENJIE'S BENCH NOTE
+=========================== */
+
+.bench-note{
+    margin-top:30px;
+    padding-top:25px;
+    border-top:1px solid #c8b79a;
+}
+
+.bench-note h3{
+    font-family:"Segoe Script","Lucida Handwriting","Brush Script MT",cursive;
+    font-size:60px;
+    font-weight:normal;
+    color:#6b4a2b;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+#noteTitle{
+    font-family:Georgia, serif;
+    font-size:80px;
+    color:#3b2816;
+    text-align:center;
+    margin-bottom:35px;
+}
+
+#noteText{
+    font-family:Georgia, serif;
+    font-size:50px;
+    line-height:2;
+    color:#3a2d22;
+    text-align:center;
+}
+
+.bench-note span{
+    display:block;
+    margin-top:30px;
+    text-align:right;
+    font-family:"Segoe Script","Lucida Handwriting",cursive;
+    font-size:40px;
+    color:#6b4a2b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="basement" id="basement">
+
+    <header class="header">
+        <h1>BASEMENT</h1>
+
+        <nav class="tabs">
+            <button onclick="selectSection('welcome', this)" class="active">BASEMENT</button>
+            <button onclick="selectSection('journey', this)">JOURNEY WOODBLOCK</button>
+            <button onclick="selectSection('personal', this)">PERSONAL PROJECTS</button>
+            <button onclick="selectSection('roger', this)">ROGER'S LAB</button>
+            <button onclick="selectSection('plans', this)">PLANS</button>
+        </nav>
+    </header>
+
+    <section class="media-panel">
+        <div class="media-buttons">
+            <button onclick="selectMedia('photos')">PHOTO GALLERY</button>
+            <button onclick="selectMedia('videos')">VIDEOS</button>
+        </div>
+
+       <div class="media-box" id="media-box">
+    <img src="images/basement.png" alt="Basement Workshop">
+</div> 
+    </section>
+
+    <aside class="caption-panel">
+        <h2 id="caption-title">WELCOME TO THE BASEMENT</h2>
+        <p id="caption-text">
+            Beneath the House of Benjie lies the workshop. This is where ideas become projects,
+            projects become lessons, and lessons become knowledge worth sharing.
+        </p>
+           <div class="bench-note" id="benchNote">
+
+        <h3>☕ Benjie's Bench Note</h3>
+
+        <h4 id="noteTitle">
+            Select a photograph
+        </h4>
+
+        <p id="noteText">
+            A short story will appear here.
+        </p>
+
+        <span>— Benjie</span>
+
+    </div>
+
+    </aside>
+
+    <div class="back-home">
+        <a href="house-map.html">BACK TO HOME MAP</a>
+    </div>
+
+</div>
+
+
+
+<script>
+const basementData = {
+    welcome: {
+        title: "WELCOME TO THE BASEMENT",
+        photo: "images/basement.png",
+        video: "",
+        caption: "Beneath the House of Benjie lies the workshop. This is where ideas become projects, projects become lessons, and lessons become knowledge worth sharing. Inside this room you will find Journey WoodBlock, Personal Projects, Roger's Lab, and shared plans for fellow builders."
+    },
+
+    journey: {
+    title: "JOURNEY WOODBLOCK",
+    photo: "images/jwbshop/jwb warehouse.jpg",
+    photos: [
+    {
+        src: "images/jwbshop/jwbshop1.jpg",
+        title: "The First Journey Woodblock",
+        story: `Every company has a birthplace.
+        This was ours.
+        It was a simple shed, built from determination more than money. 
+        There were no expensive machines, no polished showroom, 
+        and no guarantees that tomorrow would be better than today.
+        Yet this little workshop became the place where Journey Woodblock 
+        learned its first lessons—that craftsmanship begins long before success arrives.`
+    },
+
+    {
+        src: "images/jwbshop/collage1.png",
+        title: "Early Shop Days",
+        story: `People often admire the machines that came later. 
+        The CNC routers. The growing warehouse. 
+        But whenever I think of Journey Woodblock, 
+        my mind returns to this humble workshop.`
+    },
+    {
+        src: "images/jwbshop/cnc1.jpg",
+        title: "The First CNC Router",
+        story: `The first CNC router was a game-changer for Journey Woodblock. 
+        It allowed us to take on more complex projects and expand our capabilities, 
+        but it also reminded us that technology is only as good as the hands that guide it.`
+    },
+    {
+        src: "images/jwbshop/collage3.png",
+        title: "CNC-ATC acquired",
+        story: `The arrival of the CNC ATC marked a turning point for Journey Woodblock. 
+        Production accelerated, precision improved, and a dream that once seemed distant 
+        became part of our everyday work.`
+    },
+    {
+        src: "images/jwbshop/collage2.png",
+        title: "The Two Generals",
+        story: `Years earlier, I was guiding a simple plunge router by hand. 
+        Now two Automatic Tool Changers stood in the corner of the same workshop. Production became faster,   
+        confidence became better.`
+    },
+    {
+        src: "images/jwbshop/jwb3.jpg",
+        title: "A Workshop Taking Shape",
+        story: `This photograph reminds me that workshops are not built in one grand moment. 
+        They grow quietly through repeated work, small improvements, and the courage to continue.`
+    },
+    {
+        src: "images/jwbshop/jwb4.jpg",
+        title: "Learning Through Mistakes",
+        story: `Every mistake made in this workshop was a lesson learned. 
+        From misaligned cuts to failed finishes, each error taught us 
+        something valuable about craftsmanship and perseverance.`
+    },
+    {
+        src: "images/jwbshop/jwb warehouse.jpg",
+        title: "The Warehouse",
+        story: `From the shanty that I used to call a workshop, to 
+        this fortress that now houses our dreams, 
+        this photograph captures the journey of a company built on passion, 
+        hard work, and the relentless pursuit of excellence.`
+    },
+],
+    videos: [],
+    caption: `The working life of Journey WoodBlock: cabinet projects, 
+    installations, machines, materials, shop stories, improvements, mistakes, and lessons learned.`
+},
+
+    personal: {
+        title: "PERSONAL PROJECTS",
+        photo: "images/personal/personal-projects.jpg",
+        photos: [
+        {
+        file: "images/journey/jwbshop1.jpg",
+        title: "The First Journey Woodblock",
+        note: "Every company has a birthplace. This was ours. It was a simple shed, but it carried the first dreams, first mistakes, first customers, and first lessons of Journey Woodblock."
+    },
+    ],
+        video: [],
+        caption: `Personal builds, experiments, family projects, 
+        weekend ideas, and things made simply because they deserved to exist.`
+    },
+
+    roger: {
+        title: "ROGER'S LAB",
+        photo: "images/rogerdm/logo1.jpg",
+        photos: [
+      {
+        src: "images/rogerdm/logo1.jpg",
+        title: "ROGER DM",
+        story: `Journey Woodblock has always supported innovation and creativity.  We also support
+        people who chase their dreams.`
+    },
+    {
+        src: "images/rogerdm/collage1.png",
+        title: "The Trimmer Base",
+        story: `The first CNC router was a game-changer for Journey Woodblock. 
+        It allowed us to take on more complex projects and expand our capabilities, 
+        but it also reminded us that technology is only as good as the hands that guide it.`
+    },
+    ],
+        videos: [
+
+        ],
+        caption: `This humble laboratory is situated inside the warehouse of Journey Woodblock.
+        This is where problems are treasured and solutions are born.`
+    },
+
+    plans: {
+        title: "PLANS",
+        photo: "images/plans.jpg",
+        photos: [],
+        caption: "A growing cabinet of drawings, templates, shop resources, and practical plans shared with fellow builders. Take what is useful, improve it, and pass it forward."
+    }
+};
+
+let currentSection = "welcome";
+let currentMedia = "photos";
+
+function selectSection(sectionName, button){
+    currentSection = sectionName;
+    currentMedia = "photos";
+
+    document.querySelectorAll(".tabs button").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const basement = document.getElementById("basement");
+
+    if(sectionName === "roger"){
+        basement.classList.add("lab-mode");
+    }else{
+        basement.classList.remove("lab-mode");
+    }
+
+    updateBasement();
+}
+
+let currentItem = 0;
+
+function selectMedia(mediaType){
+    currentMedia = mediaType;
+    updateBasement();
+}
+
+function updateBasement(){
+    const data = basementData[currentSection];
+    const mediaBox = document.getElementById("media-box");
+
+    document.getElementById("caption-title").innerText = data.title;
+    document.getElementById("caption-text").innerText = data.caption;
+
+    document.getElementById("noteTitle").innerText = "Select a photograph";
+    document.getElementById("noteText").innerText = "A short story will appear here.";
+
+    if(currentMedia === "photos"){
+        const photos = data.photos && data.photos.length > 0 ? data.photos : [data.photo];
+        
+
+        if(currentItem >= photos.length){
+            currentItem = 0;
+        }
+
+        const selectedPhoto = photos[currentItem];
+
+    document.getElementById("noteTitle").innerText =
+    typeof selectedPhoto === "string" ? data.title : selectedPhoto.title;
+
+    document.getElementById("noteText").innerText =
+    typeof selectedPhoto === "string" ? data.caption : selectedPhoto.story;
+
+        let thumbs = "";
+
+        photos.forEach((photo, index) => {
+    const photoSrc = typeof photo === "string" ? photo : photo.src;
+
+    thumbs += `
+        <img
+            src="${photoSrc}"
+            class="${index === currentItem ? 'active-thumb' : ''}"
+            data-index="${index}"
+        >
+    `;
+});
+
+        mediaBox.innerHTML = `
+            <div class="gallery-view">
+             <img class="main-photo"
+     src="${typeof photos[currentItem] === 'string'
+            ? photos[currentItem]
+            : photos[currentItem].src}"
+     alt="${data.title}">  
+     
+                <div class="thumbnail-strip">
+                    ${thumbs}
+                </div>
+            </div>
+        `;
+
+        document.querySelectorAll(".thumbnail-strip img").forEach(thumb => {
+            thumb.addEventListener("click", function(){
+                currentItem = Number(this.dataset.index);
+                updateBasement();
+            });
+        });
+    }
+
+    if(currentMedia === "videos"){
+        const videos = data.videos || [];
+
+        if(videos.length === 0){
+            mediaBox.innerHTML = `<div class="placeholder">${data.title}<br>VIDEOS COMING SOON</div>`;
+            return;
+        }
+
+        if(currentItem >= videos.length){
+            currentItem = 0;
+        }
+
+        mediaBox.innerHTML = `
+            <div class="gallery-view">
+                <video class="main-photo" controls>
+                    <source src="${videos[currentItem]}" type="video/mp4">
+                </video>
+            </div>
+        `;
+    }
+}
+
+document.querySelectorAll(".thumbnail-strip img").forEach(thumb => {
+    thumb.addEventListener("click", function(){
+        currentItem = Number(this.dataset.index);
+        updateBasement();
+    });
+});
+
+function selectItem(index){
+    currentItem = Number(index);
+    updateBasement();
+}
+
+function nextItem(){
+    const data = basementData[currentSection];
+    const items = currentMedia === "photos" ? data.photos : data.videos;
+
+    if(!items || items.length === 0) return;
+
+    currentItem = (currentItem + 1) % items.length;
+    updateBasement();
+}
+
+function prevItem(){
+    const data = basementData[currentSection];
+    const items = currentMedia === "photos" ? data.photos : data.videos;
+
+    if(!items || items.length === 0) return;
+
+    currentItem = (currentItem - 1 + items.length) % items.length;
+    updateBasement();
+}
+
+updateBasement();
+</script>
+
+</body>
+</html>
+```
