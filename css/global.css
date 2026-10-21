@@ -1,0 +1,98 @@
+:root{
+    --paper:#fffaf2;
+    --cream:#f1e4d1;
+    --walnut:#2a1a10;
+    --gold:#b58a4a;
+    --text:#2a1a10;
+
+    --room-title:100px;
+    --section-title:100px;
+    --essay-title:58px;
+    --body-text:60px;
+    --verse-text:70px;
+    --button-text:28px;
+    --footer-text:24px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    min-height:100%;
+}
+
+body{
+    font-family: Georgia, serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow: hidden;
+}
+
+button{
+    font-family:Georgia, serif;
+    cursor:pointer;
+}
+
+a{
+    color:var(--walnut);
+    text-decoration:none;
+}
+
+.back-home{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    letter-spacing:3px;
+    background:var(--paper);
+}
+
+.back-home a{
+    color:var(--walnut);
+    text-decoration:none;
+}
+
+.site-footer{
+    background:var(--walnut);
+    color:#fff5e6;
+    min-height:90px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:var(--footer-text);
+    line-height:1.4;
+    border-top:2px solid var(--gold);
+    text-align:center;
+}
+
+.tabs button,
+.media-buttons button{
+    font-family:Georgia, serif;
+    font-size:50px;
+    background:#f7e8cf;
+    color:#2a1a10;
+    border:2px solid #2a1a10;
+    padding:10px 18px;
+    cursor:pointer;
+}
+
+.tabs button.active{
+    background:#2a1a10;
+    color:#fff5e6;
+}
+
+.site-footer div:first-child{
+    font-size:34px;
+    letter-spacing:2px;
+}
