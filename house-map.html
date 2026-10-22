@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House Map | House of Benjie</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f3e8d6;
+    color: #392719;
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+header {
+    padding: 35px 20px 15px;
+}
+
+h1 {
+    font-size: clamp(38px, 5vw, 65px);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 25px;
+    color: #80643e;
+    margin-top: 12px;
+}
+
+.plan-wrapper {
+    width: min(90%, 1350px);
+    margin: 30px auto;
+    padding: 24px;
+    background: #e4d2b7;
+    border: 5px solid #49301e;
+    box-shadow: 0 12px 35px #0003;
+    zoom: 0.5;
+}
+
+.floor-plan {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr 1fr;
+    grid-template-rows: 140px 150px 160px 110px;
+    gap: 10px;
+    padding: 12px;
+    background: #49301e;
+}
+
+.room {
+    background: #fff6e8;
+    border: 4px solid #8b6c48;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    font-size: clamp(17px, 2vw, 28px);
+    font-weight: bold;
+    color: #392719;
+    text-decoration: none;
+    transition: background .2s, transform .2s;
+}
+
+a.room:hover {
+    background: #e8c88e;
+    transform: scale(1.015);
+}
+
+.room small {
+    font-size: 16px;
+    font-weight: normal;
+    color: #80643e;
+}
+
+.study {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.library {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.quiet {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.coffee {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.living {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    background: #f8e5c3;
+}
+
+.family {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.dining {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.guest {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.basement {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.foyer {
+    grid-column: 2;
+    grid-row: 4;
+    background: #e9d2a9;
+    border-top: 4px dashed #8b6c48;
+}
+
+.garage {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.entrance {
+    font-size: 24px;
+    margin: 15px auto 0;
+    font-weight: bold;
+}
+
+.back-home {
+    display: inline-block;
+    margin: 20px auto 45px;
+    padding: 15px 28px;
+    background: #49301e;
+    color: #fff6e8;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+@media (max-width: 700px) {
+    .plan-wrapper {
+        overflow-x: auto;
+    }
+
+    .floor-plan {
+        min-width: 720px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>HOUSE OF BENJIE</h1>
+    <div class="subtitle">
+        Architectural Floor Plan — Explore Our Home
+    </div>
+</header>
+
+<main>
+<div class="plan-wrapper">
+    <div class="floor-plan">
+
+        <div class="room study">
+            📐 Study
+            <small>Coming soon</small>
+        </div>
+
+        <div class="room library">
+            📚 Library
+            <small>Coming soon</small>
+        </div>
+
+        <div class="room quiet">
+            🕊️ Quiet Room
+            <small>Coming soon</small>
+        </div>
+
+        <a class="room coffee" href="coffee-bar.html">
+            ☕ Coffee Bar
+            <small>Enter room</small>
+        </a>
+
+        <div class="room living">
+            🛋️ Living Room
+            <small>The heart of our home</small>
+        </div>
+
+        <div class="room family">
+            ❤️ Family Room
+            <small>Coming soon</small>
+        </div>
+
+        <div class="room dining">
+            🍽️ Dining Room
+            <small>Coming soon</small>
+        </div>
+
+        <div class="room guest">
+            🛏️ Guest Room
+            <small>Coming soon</small>
+        </div>
+
+        <a class="room basement" href="basement.html">
+            ⬇️ Basement Stairs
+            <small>Visit the workshop</small>
+        </a>
+
+        <div class="room foyer">
+            🚪 Foyer
+            <small>Welcome inside</small>
+        </div>
+
+        <div class="room garage">
+            🚗 Garage
+            <small>Coming soon</small>
+        </div>
+
+    </div>
+</div>
+
+<div class="entrance">
+    ↑ MAIN ENTRANCE ↑
+</div>
+
+<a class="back-home" href="index.html">
+    Return to Front Gate
+</a>
+</main>
+
+</body>
+</html>
