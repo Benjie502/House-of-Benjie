@@ -9,188 +9,206 @@
 
 <style>
 
-    .coffee-intro{
-    font-size:38px;
-    line-height:1.8;
-    margin-top:40px;
+/* GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+body {
+    font-family: Georgia, serif;
+    background: #2b1a10;
+    color: #fff3d0;
+    overflow: hidden;
 }
 
-body{
-    font-family:Georgia, serif;
-    background:#2b1a10;
-    color:#fff3d0;
-    overflow:hidden;
+/* MAIN COFFEE BAR LAYOUT */
+
+.room {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 16% 34% 18% 32%;
+    grid-template-rows: 22% 68% 10%;
+    background: #2b1a10;
+    border: 1px solid #8b6b3e;
 }
 
-.room{
-    width:100vw;
-    height:100vh;
-    display:grid;
-    grid-template-columns:16% 34% 18% 32%;
-    grid-template-rows:22% 68% 10%;
-    background:#2b1a10;
-    border:1px solid #8b6b3e;
-}
+/* SHARED PANEL COLORS */
 
 .title-panel,
 .verse-panel,
 .toc-panel,
 .essay-panel,
-.back-home{
-    background:#f3eadc;
-    color:#2a1a10;
+.back-home {
+    background: #f3eadc;
+    color: #2a1a10;
 }
 
-.title-panel{
-    grid-column:1;
-    grid-row:1 / 4;
-    border-right:2px solid #2a1a10;
-    padding:42px 24px;
+/* LEFT TITLE PANEL */
+
+.title-panel {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    border-right: 2px solid #2a1a10;
+    padding: 24px 18px;
+    overflow: auto;
 }
 
-.title-panel h1{
-    font-size:clamp(24px, 2.5vw, 40px);
-    line-height:1.15;
-    font-weight:normal;
-    overflow-wrap:anywhere;
+.title-panel h1 {
+    font-size: clamp(24px, 2.5vw, 40px);
+    line-height: 1.2;
+    font-weight: normal;
+    overflow-wrap: anywhere;
 }
 
-.verse-panel{
-    grid-column:2 / 4;
-    grid-row:1;
-    border:2px solid #2a1a10;
-    margin:14px;
-    padding:26px;
-    overflow:auto;
+/* VERSE OF THE DAY */
+
+.verse-panel {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    border: 2px solid #2a1a10;
+    margin: 14px;
+    padding: 20px;
+    overflow: auto;
 }
 
-.verse-panel h2{
-    font-size:100px;
-    margin-bottom:16px;
+.verse-panel h2 {
+    font-size: clamp(18px, 2vw, 30px);
+    line-height: 1.3;
+    margin-bottom: 12px;
 }
 
-.verse-panel p{
-    font-size:70px;
-    line-height:2;
+.verse-panel p {
+    font-size: clamp(16px, 1.5vw, 24px);
+    line-height: 1.5;
 }
 
-.photo-panel{
-    grid-column:2;
-    grid-row:2;
-    padding:14px;
-    background:#2b1a10;
+/* COFFEE BAR PHOTOGRAPH */
+
+.photo-panel {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 14px;
+    background: #2b1a10;
 }
 
-.photo-panel img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.photo-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.toc-panel{
-    grid-column:3;
-    grid-row:2;
-    border:2px solid #2a1a10;
-    margin:1.4px 0;
-    padding:24px 24px 10px 24px;
-    overflow:auto;
-    align-self:start;
-    height:fit-content;
-    margin-top:960px;
+/* TABLE OF CONTENTS */
+
+.toc-panel {
+    grid-column: 3;
+    grid-row: 2;
+    border: 2px solid #2a1a10;
+    margin: 14px 0;
+    padding: 20px 14px;
+    overflow: auto;
+    align-self: stretch;
+    min-height: 0;
 }
 
-.toc-panel h2{
-    font-size:100px;
-    margin-bottom:20px;
+.toc-panel h2 {
+    font-size: clamp(18px, 2vw, 30px);
+    margin-bottom: 16px;
 }
 
-.toc-panel ol{
-    padding-left:75px;
+.toc-panel ol {
+    padding-left: 24px;
 }
 
-.toc-panel li{
-    font-size:60px;
-    line-height:2;
-    margin-bottom:1.4px;
-    cursor:pointer;
+.toc-panel li {
+    font-size: clamp(14px, 1.3vw, 20px);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    cursor: pointer;
 }
 
-.toc-nav{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:18px;
-    margin-top:40px;
-    flex-wrap:wrap;
+/* TABLE OF CONTENTS NAVIGATION */
+
+.toc-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
-.toc-nav button{
-    background:none;
-    border:none;
-    cursor:pointer;
-    font-family:Georgia, serif;
-    font-size:38px;
-    color:#2a1a10;
+.toc-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    font-size: clamp(14px, 1.2vw, 18px);
+    color: #2a1a10;
 }
 
-.toc-nav .active-page{
-    font-weight:bold;
-    text-decoration:underline;
+.toc-nav .active-page {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
-.essay-panel{
-    grid-column:4;
-    grid-row:1 / 3;
-    border-left:2px solid #2a1a10;
-    padding:42px;
-    overflow:auto;
+/* ESSAY PANEL */
+
+.essay-panel {
+    grid-column: 4;
+    grid-row: 1 / 3;
+    border-left: 2px solid #2a1a10;
+    padding: 28px;
+    overflow: auto;
 }
 
-.essay-panel h1{
-    font-size:58px;
-    font-weight:normal;
-    letter-spacing:5px;
-    text-align:center;
-    margin-top:100px;
+.essay-panel h1 {
+    font-size: clamp(22px, 2.5vw, 38px);
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.essay-panel p{
-    font-size:60px;
-    line-height:2;
-    margin-top:30px;
+.essay-panel p {
+    font-size: clamp(16px, 1.5vw, 24px);
+    line-height: 1.6;
+    margin-top: 20px;
 }
 
-.back-home{
-    grid-column:4;
-    grid-row:3;
-    border-left:2px solid #2a1a10;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:40px;
-    letter-spacing:3px;
-    background:#fff5e6;
+/* BACK TO HOUSE MAP */
+
+.back-home {
+    grid-column: 4;
+    grid-row: 3;
+    border-left: 2px solid #2a1a10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: clamp(14px, 1.5vw, 22px);
+    letter-spacing: 1px;
+    background: #fff5e6;
 }
 
-.back-home a{
-    color:#2a1a10;
-    text-decoration:none;
+.back-home a {
+    color: #2a1a10;
+    text-decoration: none;
 }
 
-.coffee-intro{
-    font-size:60px;
-    line-height:3;
-    margin-top:40px;
-}
+/* COFFEE BAR INTRODUCTION */
 
+.coffee-intro {
+    font-size: clamp(16px, 1.5vw, 24px);
+    line-height: 1.6;
+    margin-top: 20px;
+}
 
 </style>
+
 </head>
 
 <body>
