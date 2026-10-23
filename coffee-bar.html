@@ -207,6 +207,132 @@ body {
     margin-top: 20px;
 }
 
+/* =====================================
+   COFFEE BAR — MOBILE PHONE LAYOUT
+   ===================================== */
+
+@media screen and (max-width: 768px) {
+
+    html, body {
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .room {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title-panel,
+    .verse-panel,
+    .photo-panel,
+    .toc-panel,
+    .essay-panel,
+    .back-home {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        margin: 0;
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .title-panel {
+        padding: 22px 18px;
+        border-right: none;
+    }
+
+    .title-panel h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        overflow-wrap: normal;
+    }
+
+    .coffee-intro {
+        font-size: 17px;
+        line-height: 1.6;
+        margin-top: 14px;
+    }
+
+    .verse-panel {
+        padding: 20px;
+        overflow: visible;
+    }
+
+    .verse-panel h2 {
+        font-size: 24px;
+    }
+
+    .verse-panel p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .photo-panel {
+        padding: 14px;
+    }
+
+    .photo-panel img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .toc-panel {
+        padding: 22px;
+        margin-top: 0;
+        overflow: visible;
+    }
+
+    .toc-panel h2 {
+        font-size: 26px;
+    }
+
+    .toc-panel ol {
+        padding-left: 24px;
+    }
+
+    .toc-panel li {
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .toc-nav button {
+        font-size: 16px;
+    }
+
+    .essay-panel {
+        padding: 24px 20px;
+        overflow: visible;
+    }
+
+    .essay-panel h1 {
+        font-size: 28px;
+        margin-top: 0;
+        letter-spacing: 2px;
+    }
+
+    .essay-panel p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-top: 18px;
+    }
+
+    .back-home {
+        padding: 20px 12px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+}
+
 </style>
 
 </head>
