@@ -333,6 +333,21 @@ body {
     }
 }
 
+
+/* SHARE CONTROLS — shown only after an essay is selected */
+.essay-share { margin-top: 32px; padding-top: 18px; border-top: 1px solid #b69b79; }
+.essay-share[hidden] { display: none; }
+.essay-share-label { font-size: 16px; margin-bottom: 12px; }
+.essay-share-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.essay-share-actions a, .essay-share-actions button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 42px; padding: 9px 14px; border: 1px solid #76502f;
+  border-radius: 6px; background: #fff8ee; color: #2a1a10;
+  font: inherit; font-size: 15px; text-decoration: none; cursor: pointer;
+}
+.essay-share-actions a:hover, .essay-share-actions button:hover { background: #ead8bf; }
+.essay-share-status { min-height: 1.5em; font-size: 14px; margin-top: 8px; }
+
 </style>
 
 </head>
@@ -376,6 +391,16 @@ body {
         Select an entry from Benjie's Bench.
         The chosen composition will appear here.
     </p>
+    <div id="essay-share" class="essay-share" hidden>
+        <div class="essay-share-label">Enjoyed this reflection? Share it with someone.</div>
+        <div class="essay-share-actions">
+            <button type="button" id="share-native">Share</button>
+            <a id="share-facebook" href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <button type="button" id="share-copy">Copy Link</button>
+        </div>
+        <div id="share-status" class="essay-share-status" role="status" aria-live="polite"></div>
+    </div>
 </main>
 
     <div class="back-home">
@@ -484,15 +509,74 @@ function renderTOC() {
   toc.appendChild(nav);
 }
 
-function showEssay(index) {
+function showEssay(index, updateAddress = true) {
   const title = essays[index];
 
   document.getElementById("essay-title").innerText = title;
 
   document.getElementById("essay-body").innerText =
     essayTexts[title] || "Essay not yet uploaded.";
+  updateEssayShare(index);
+  if (updateAddress) history.replaceState(null, "", essayLink(index));
+}
+
+
+function essayLink(index) {
+  const url = new URL(window.location.href);
+  url.searchParams.delete("version");
+  url.hash = "essay-" + (index + 1);
+  return url.toString();
+}
+
+function updateEssayShare(index) {
+  const title = essays[index];
+  const url = essayLink(index);
+  const text = title + " — Benjie's Bench, House of Benjie";
+  document.getElementById("essay-share").hidden = false;
+  document.getElementById("share-status").textContent = "";
+  document.getElementById("share-facebook").href =
+    "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+  document.getElementById("share-whatsapp").href =
+    "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + "\n" + url);
+  document.getElementById("share-native").onclick = async function () {
+    if (navigator.share) {
+      try { await navigator.share({ title: text, text: title, url: url }); }
+      catch (error) { if (error.name !== "AbortError") document.getElementById("share-status").textContent = "Please use Copy Link instead."; }
+    } else {
+      document.getElementById("share-status").textContent = "Use Facebook, WhatsApp, or Copy Link to share.";
+    }
+  };
+  document.getElementById("share-copy").onclick = async function () {
+    try {
+      await navigator.clipboard.writeText(url);
+      document.getElementById("share-status").textContent = "Essay link copied!";
+    } catch (error) {
+      const field = document.createElement("textarea");
+      field.value = url;
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      const copied = document.execCommand("copy");
+      field.remove();
+      document.getElementById("share-status").textContent =
+        copied ? "Essay link copied!" : "Unable to copy automatically. Please copy the page address.";
+    }
+  };
+}
+
+function openEssayFromLink() {
+  const match = /^#essay-(\d+)$/.exec(window.location.hash);
+  if (!match) return;
+  const index = Number(match[1]) - 1;
+  if (!Number.isInteger(index) || index < 0 || index >= essays.length) return;
+  currentPage = Math.floor(index / ITEMS_PER_PAGE);
+  renderTOC();
+  showEssay(index, false);
 }
 
 renderTOC();
+openEssayFromLink();
+window.addEventListener("hashchange", openEssayFromLink);
 </script>
 ```
