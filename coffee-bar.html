@@ -397,6 +397,7 @@ body {
             <button type="button" id="share-native">Share</button>
             <a id="share-facebook" href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
             <a id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a id="share-threads" href="#" target="_blank" rel="noopener noreferrer">Threads</a>
             <button type="button" id="share-copy">Copy Link</button>
         </div>
         <div id="share-status" class="essay-share-status" role="status" aria-live="polite"></div>
@@ -538,6 +539,8 @@ function updateEssayShare(index) {
     "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
   document.getElementById("share-whatsapp").href =
     "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + "\n" + url);
+  document.getElementById("share-threads").href =
+    "https://www.threads.net/intent/post?text=" + encodeURIComponent(text + "\n" + url);
   document.getElementById("share-native").onclick = async function () {
     if (navigator.share) {
       try { await navigator.share({ title: text, text: title, url: url }); }
