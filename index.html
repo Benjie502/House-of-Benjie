@@ -152,6 +152,31 @@ h1{
     }
 }
 
+
+/* THE FRONT DOORBELL — a clear entrance for every visitor */
+.bell-invitation { margin-top: 26px; margin-bottom: 12px; font-size: clamp(17px, 1.6vw, 23px); }
+.doorbell-button {
+    display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; min-width: 240px; min-height: 126px; padding: 16px 30px;
+    border: 3px solid #f5cf79; border-radius: 18px;
+    background: linear-gradient(160deg, #6a421d, #2e1b0c);
+    color: #fff4d9; text-decoration: none; text-shadow: 0 2px 4px #000;
+    box-shadow: 0 8px 25px rgba(0,0,0,.55), inset 0 1px 0 #e5bb6a;
+    cursor: pointer; transition: transform .15s, box-shadow .15s;
+}
+.doorbell-button:hover, .doorbell-button:focus-visible {
+    transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.65);
+    outline: 3px solid #fff; outline-offset: 4px;
+}
+.doorbell-button:active { transform: scale(.97); }
+.doorbell-icon { font-size: 42px; line-height: 1; }
+.doorbell-label { font-size: clamp(20px, 2vw, 28px); font-weight: bold; letter-spacing: 2px; }
+.doorbell-subtitle { font-size: 13px; letter-spacing: 1px; color: #ffe2a4; }
+@media screen and (max-width: 768px) {
+    .bell-invitation { font-size: 16px; margin-top: 20px; }
+    .doorbell-button { width: min(100%, 300px); min-height: 120px; padding: 14px; }
+}
+
 </style>
 
 </head>
@@ -179,8 +204,12 @@ Lessons are learned in the workshop.<br>
 Books wait quietly in the library.<br>
 Coffee is always ready.<br><br>
 
-<a href="house-map.html" style="color:inherit; text-decoration:none;
- cursor:pointer;">Ring the bell and come inside.</a>
+<p class="bell-invitation">You're welcome here. Ring the doorbell to come inside.</p>
+<a class="doorbell-button" href="house-map.html" aria-label="Ring the doorbell and enter House of Benjie">
+    <span class="doorbell-icon" aria-hidden="true">🔔</span>
+    <span class="doorbell-label">RING THE BELL</span>
+    <span class="doorbell-subtitle">TAP TO ENTER THE HOUSE</span>
+</a>
 
 </div>
 
@@ -188,9 +217,7 @@ Coffee is always ready.<br><br>
 
 </div>
 
-<div class="scroll">
-SCROLL TO ENTER
-</div>
+
 
 </section>
 
