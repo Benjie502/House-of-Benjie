@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="A sophisticated warm minimalist walnut home office">
+<defs><linearGradient id="wall" x2="1" y2="1"><stop stop-color="#e7d8c1"/><stop offset="1" stop-color="#c6ab8c"/></linearGradient><linearGradient id="wood" x2="1" y2="0"><stop stop-color="#6f452b"/><stop offset=".5" stop-color="#966542"/><stop offset="1" stop-color="#553522"/></linearGradient><linearGradient id="floor" x2="0" y2="1"><stop stop-color="#d6bb97"/><stop offset="1" stop-color="#a98566"/></linearGradient><linearGradient id="glass" x2="0" y2="1"><stop stop-color="#adc3b6"/><stop offset="1" stop-color="#e0dcca"/></linearGradient><linearGradient id="dark" x2="0" y2="1"><stop stop-color="#291d16"/><stop offset="1" stop-color="#4a3021"/></linearGradient><filter id="blur"><feGaussianBlur stdDeviation="13"/></filter></defs>
+<rect width="1600" height="900" fill="url(#wall)"/>
+<path d="M0 740H1600V900H0Z" fill="url(#floor)"/><path d="M0 740H1600" stroke="#a68b71" stroke-width="7"/>
+<rect x="0" y="0" width="240" height="745" fill="#4c3528"/><rect x="18" y="17" width="205" height="715" fill="url(#glass)"/><path d="M120 17V733M18 390H223" stroke="#49372c" stroke-width="13"/>
+<path d="M30 180C100 120 180 135 250 80M20 330C90 290 180 310 235 250" fill="none" stroke="#748768" stroke-width="14" opacity=".28" filter="url(#blur)"/>
+<path d="M235 0L725 0L1120 740L410 740Z" fill="#fff7e7" opacity=".12"/>
+<rect x="840" y="0" width="760" height="740" fill="url(#wood)"/><path d="M840 0V740M1130 0V740M1430 0V740M1592 0V740" stroke="#39271c" stroke-width="8" opacity=".5"/>
+<rect x="880" y="95" width="475" height="440" fill="#412b20" stroke="#be8b55" stroke-width="9"/>
+<rect x="895" y="111" width="445" height="6" fill="#e6b373" opacity=".8"/><rect x="895" y="260" width="445" height="6" fill="#e6b373" opacity=".8"/><rect x="895" y="407" width="445" height="6" fill="#e6b373" opacity=".8"/>
+<rect x="915" y="145" width="65" height="110" rx="8" fill="#bf9c78"/><rect x="1000" y="185" width="110" height="70" rx="3" fill="#74523a"/><rect x="1115" y="160" width="22" height="96" fill="#d2b58d"/><rect x="1144" y="173" width="30" height="83" fill="#b6a087"/><rect x="1185" y="145" width="20" height="111" fill="#cbb899"/>
+<path d="M1245 255Q1190 200 1222 165Q1254 130 1275 181Q1312 133 1329 182Q1341 225 1280 255" fill="#657b52"/><rect x="1248" y="225" width="60" height="35" rx="8" fill="#c3a88e"/>
+<rect x="947" y="310" width="80" height="92" rx="30" fill="#d2bda1"/><rect x="1110" y="346" width="140" height="56" rx="23" fill="#b9a38b"/><rect x="1070" y="390" width="180" height="12" fill="#ddc2a0"/>
+<rect x="850" y="555" width="580" height="185" fill="#654126" stroke="#39261c" stroke-width="5"/><path d="M1140 555V740M850 654H1430" stroke="#3e2a20" stroke-width="6"/>
+<ellipse cx="1185" cy="812" rx="380" ry="42" fill="#34281f" opacity=".22" filter="url(#blur)"/>
+<path d="M720 675L1540 675L1480 730L680 730Z" fill="#805033"/><rect x="660" y="650" width="910" height="55" rx="6" fill="url(#wood)" stroke="#4e3323" stroke-width="6"/><rect x="705" y="703" width="66" height="172" fill="#6d432c"/><rect x="1460" y="703" width="68" height="172" fill="#6d432c"/>
+<rect x="1040" y="515" width="180" height="157" rx="44" fill="#ddd1ba" stroke="#988470" stroke-width="6"/><rect x="1070" y="635" width="140" height="62" rx="30" fill="#d5c4ac"/><path d="M1140 697V825M1080 825H1200" stroke="#463932" stroke-width="16" stroke-linecap="round"/>
+<rect x="1255" y="620" width="93" height="20" rx="3" fill="#d7c1a2"/><rect x="1265" y="601" width="92" height="18" rx="3" fill="#b7a084"/>
+<path d="M1430 644V540" stroke="#ae8752" stroke-width="11"/><ellipse cx="1430" cy="527" rx="68" ry="31" fill="#ac885d"/><ellipse cx="1430" cy="642" rx="40" ry="8" fill="#a17c55"/>
+<rect x="800" y="621" width="210" height="16" rx="3" fill="#473329"/><path d="M810 619L840 577H1020L997 619Z" fill="#554036"/>
+<path d="M0 840L660 840" stroke="#faf1e4" opacity=".13" stroke-width="90"/>
+</svg>
